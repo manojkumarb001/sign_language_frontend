@@ -8,6 +8,7 @@ import "./App.css";
 import COntact from "./pages/COntact";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/contact" element={<COntact />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
     </>
   );

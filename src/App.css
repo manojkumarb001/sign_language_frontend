@@ -6,7 +6,9 @@
   background-color: #0073e6;
   color: white;
 }
-
+.navbar h2{
+  margin-left: 50px;
+}
 .navbar a {
   color: white;
   text-decoration: none;

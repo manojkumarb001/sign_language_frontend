@@ -1,0 +1,52 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background: #f8f9fa;
+}
+
+.menu-button {
+  position: fixed;
+  top: 5%;
+  left: 2px;
+  background: black;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background: #134d70fe;
+  color: rgb(255, 231, 231);
+  padding: 20px;
+  position: relative;
+  left: -250px;
+  transition: left 1.2s ease;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  color: #000;
+  font-weight: bold;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background: #24c4af;
+}
+
+.content {
+  flex-grow: 2;
+  padding: 20px;
+  margin-left: 20%;
+}
