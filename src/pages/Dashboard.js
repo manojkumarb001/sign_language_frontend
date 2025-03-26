@@ -65,11 +65,11 @@ const Dashboard = () => {
         <div className="menu-icon" onClick={toggleSidebar}>
           ☰
         </div>
-        <h1>SignifyX</h1>
+        <h1 style={{color:"white",fontFamily:"revert"}}>SignifyX</h1>
         <div>
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
           <button className="logout-btn">Logout</button>
         </div>
       </nav>
@@ -77,10 +77,12 @@ const Dashboard = () => {
       {/* Main Content */}
       <main className="main-content">
         <section className="content">
-          <div className="waveform">📊 Audio Waveform</div>
+          <div className="waveform">📊 Audio Waveform
           <button onClick={startListening} className="record-btn" disabled={isRecording}>
             {isRecording ? "Listening..." : "Record Now"}
           </button>
+          </div>
+         
           <div className="transcribed-text">
             <p><strong>Transcribed Text:</strong> {transcribedText}</p>
           </div>
