@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Register.css";
+import Navbar from "../components/Navbar";
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -57,8 +58,14 @@ const Register = () => {
         }
     };
 
+
+
     return (
+<div>
+        <Navbar/>
+
         <section className="register">
+
             <h2>Create an Account</h2>
             <p>Join SignifyX 007 today and start experiencing AI-powered communication.</p>
 
@@ -80,7 +87,7 @@ const Register = () => {
 
                 >Login</Link>
             </p>
-        </section>
+        </section></div>
     );
 };
 

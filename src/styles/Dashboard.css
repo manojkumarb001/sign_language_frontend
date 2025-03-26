@@ -1,52 +1,108 @@
 .dashboard-container {
   display: flex;
   height: 100vh;
-  background: #f8f9fa;
+  font-family: Arial, sans-serif;
 }
 
-.menu-button {
-  position: fixed;
-  top: 5%;
-  left: 2px;
-  background: black;
-  border: 2px solid white;
+/* Navbar should be fixed at the top */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #134d70fe;
   color: white;
-  cursor: pointer;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
 }
 
+/* Menu icon inside navbar */
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  background: #3498db;
+  color: white;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+/* Sidebar */
 .sidebar {
   width: 200px;
-  height: 100%;
   background: #134d70fe;
-  color: rgb(255, 231, 231);
+  color: #fff;
   padding: 20px;
-  position: relative;
+  position: fixed;
   left: -250px;
-  transition: left 1.2s ease;
+  top: 60px; /* Below navbar */
+  height: 100%;
+  transition: left 0.3s ease-in-out;
 }
 
 .sidebar.open {
   left: 0;
 }
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  color: #000;
-  font-weight: bold;
-}
-
-.sidebar ul li {
-  padding: 15px;
+.sidebar ul li{
+  color: black;
   cursor: pointer;
 }
-
 .sidebar ul li:hover {
   background: #24c4af;
 }
 
-.content {
-  flex-grow: 2;
+.convo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.email {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ddd;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: #fff;
+  padding: 8px ;
+  margin-right: 40px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Content area */
+.main-content {
+  padding: 90px 20px 890px; /* Push content below navbar */
+  transition: margin-left 0.3s ease-in-out;
+  width: 100%;
+  margin-top: 30px;
+  margin-left: 240px;
+  
+}
+
+.waveform {
+  height: 100px;
+  background: #ecf0f1;
+  margin-bottom: 10px;
   padding: 20px;
-  margin-left: 20%;
+}
+
+.record-btn {
+  background: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.transcribed-text {
+  margin-top: 20px;
+  padding: 10px;
+  background: #ecf0f1;
+  border-radius: 5px;
 }

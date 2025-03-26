@@ -4,8 +4,11 @@ import "../styles/Home.css";
 import About from "./About";
 import Feature from "./Feature";
 import COntact from "./COntact";
+import Navbar from "../components/Navbar";
 
 const Home = () => (
+  <div>    <Navbar/>
+
   <section className="home">
     <div className="hero">
       <h1>Welcome to SignifyX 007</h1>
@@ -42,7 +45,7 @@ const Home = () => (
     <About/>
     <Feature/>
     <COntact/>
-  </section>
+  </section></div>
 );
 
 export default Home;
