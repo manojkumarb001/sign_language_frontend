@@ -9,12 +9,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #134d70fe;
+  background: #000000;
   color: white;
   padding: 15px;
   position: fixed;
   top: 0;
   width: 100%;
+  margin-right: 330px;
+  padding-right: 30px;
   height: 60px;
   z-index: 1000;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -49,6 +51,7 @@
   left: 0;
 }
 .sidebar ul li{
+  background-color: white;
   color: black;
   cursor: pointer;
 }
@@ -93,8 +96,8 @@ border-radius: 10px;
    padding: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 800px;
+   width: 800px;
+   gap: 20px;
 }
 .waveform {
   height: 300px;

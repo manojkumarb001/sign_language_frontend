@@ -4,10 +4,10 @@ import "../styles/Home.css";
 import About from "./About";
 import Feature from "./Feature";
 import COntact from "./COntact";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 
 const Home = () => (
-  <div>    <Navbar/>
+  <div>    
 
   <section className="home">
     <div className="hero">
@@ -43,7 +43,7 @@ const Home = () => (
       </div>
     </div>
     <About/>
-    <Feature/>
+     <Feature/>
     <COntact/>
   </section></div>
 );
