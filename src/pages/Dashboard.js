@@ -9,6 +9,7 @@ const Dashboard = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const [conversations, setConversations] = useState([]);
   const navigate = useNavigate();
   const recognitionRef = useRef(null);
   const timeoutRef = useRef(null);
@@ -22,13 +23,28 @@ const Dashboard = () => {
         .get("http://localhost:5000/user", {
           headers: { Authorization: `Bearer ${token}` },
         })
-        .then((res) => setUser(res.data.user))
+        .then((res) => {
+          setUser(res.data.user);
+          fetchConversations(res.data.user.email);
+        })
         .catch(() => {
           localStorage.removeItem("token");
           navigate("/login");
         });
     }
   }, [navigate]);
+
+  const fetchConversations = async (email) => {
+    try {
+      const response = await axios.get("http://localhost:5000/speech_logs", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      setConversations(response.data.logs || []);
+    } catch (error) {
+      console.error("Error fetching conversations:", error);
+      setConversations([]);
+    }
+  };
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
@@ -67,6 +83,7 @@ const Dashboard = () => {
           );
 
           setSignLanguageText(response.data.sign_translation || "Sign translation unavailable.");
+          fetchConversations(user.email);
         } catch (error) {
           console.error("Error saving transcribed text:", error);
           setSignLanguageText("Error processing sign language.");
@@ -102,7 +119,6 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      {/* Navbar */}
       <nav className="navbar">
         <div className="menu-icon" onClick={toggleSidebar}>☰</div>
         <h1>SignifyX</h1>
@@ -114,20 +130,23 @@ const Dashboard = () => {
         </div>
       </nav>
 
-      {/* Sidebar */}
       <aside className={`sidebar ${isSidebarOpen ? "open" : ""}`} onClick={() => setIsSidebarOpen(false)}>
         <h2>SignifyX</h2>
         <ul>
-          <li>Conversation 1</li>
-          <li>Conversation 2</li>
-          <li>Conversation 3</li>
-          <li>Conversation 4</li>
-          <li>Conversation 5</li>
+          {conversations.length > 0 ? (
+            conversations.slice().reverse().map((conv, index) => (
+              <li key={index}>
+                <strong>"{conv.speech_text}"</strong>
+                <br />➡ {conv.sign_translation}
+              </li>
+            ))
+          ) : (
+            <li>No conversations available yet.</li>
+          )}
         </ul>
         <p>{user?.email}</p>
       </aside>
 
-      {/* Main Content */}
       <main className="main-content">
         <section className="content">
           <button onClick={startListening} className="record-btn" disabled={isRecording}>
