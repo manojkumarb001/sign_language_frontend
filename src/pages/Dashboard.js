@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/Dashboard.css";
 
@@ -161,6 +161,10 @@ const Dashboard = () => {
             <p><strong>Sign Language Translation:</strong> {signLanguageText}</p>
           </div>
         </section>
+        <Link to="/sign-converter" className="login-link"
+                                        style={{  padding: "5px",  margin: "10px",color: "black",textDecoration: "none",backgroundColor: "rgb(220, 71, 96)",border: "2px solid black",borderRadius: "8px" }}
+        
+                        >Sign Converter</Link>
       </main>
     </div>
   );
